@@ -14,10 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 
 from django.shortcuts import HttpResponse,render
 
+
+
+from blog.views import loginPage
 #view function
 def index(request):
     return HttpResponse("OK THIS IS A HTTP RESPONSE")
@@ -40,20 +43,35 @@ def form_view(request):
 
     return HttpResponse("FORM dATA is {} {}".format(name,address) )
 
-
+from blog.models import BlogPost
 def index_render(request):
+    blog = BlogPost.objects.last()
+    context = {
+        "blog":blog
 
+    }
+    return render(request,"home.html",context)
+
+def create_event(request):
     context = {
 
     }
+    return render(request,"create_event.html",context)
 
-    return render(request,"index.html",context)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("",index_render,name="index"),
     path("myname/<str:name>/",myname_view,name="myname_view"),
     path("mul/<int:num1>/<int:num2>/",multiply_view,name="multiply_view"),
-    path("form/",form_view,name="form_view")
+    path("form/",form_view,name="form_view"),
+
+    path("login/",loginPage,name="login"),
+
+
+    path("create/",create_event,name="create_event"),
+
+
+    path("blog/",include('blog.urls')),
 
 ]

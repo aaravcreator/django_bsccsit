@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="content">
+    <div class="container-fluid">
+        <h1> Edit  <strong>{{blog.title}}</strong></h1>
+<!-- <div class="row">
+    <div class="col-lg-12">
+        <a class='btn btn-success' href="#"><i class="fa fa-text"></i> Add Blog</a>
+    </div>
+</div> -->
+<br>
+<div class="row-lg-12" >
+
+    <div>
+        <form action="" method="post">
+
+            {% csrf_token %}
+            {{form | crispy }}
+
+            <button type="submit" class="btn btn-success"> Update </button>
+        </form>
+      
+    </div>
+    <!-- <table class="table table-bordered table-striped">
+        <thead>
+          <tr class='bg-success text-white'>
+            <th scope="col">ID</th>
+            <th scope="col">Date</th>
+            <th scope='col'>Title</th>
+            <th scope="col">Author</th>
+
+           
+            <th scope="col">Actions</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            {%for blog  in blogs %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{blog.date}}</td>
+            <td>{{blog.title}}</td>
+            <td>{{blog.author}}</td>
+         
+            <td>
+              <a class='btn btn-success' href="#"><i class="fa fa-file"></i></a>
+              <a class='btn btn-warning' href=""><i class="fa fa-edit"></i></a>
+              <!-- <a class='btn btn-success' href="#"><i class="fa fa-plus"></i></a> -->
+              <a class='btn btn-danger' href="#"><i class="fa fa-trash"></i></a>
+            </td>
+          </tr>
+
+          {%endfor%}
+          
+        </tbody>
+      </table> -->
+</div>
+
+
+    </div>
+
+</div>
+{% endblock %}
