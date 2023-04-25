@@ -27,5 +27,9 @@ change directory to project directory(directory where manage.py file resides)
 We need to install django and other dependencies
 here we have requirements.txt file with is list of all required dependencies
 Run  ``` pip install -r requirements.txt```
+OR
+    ``` pip install django```
+then
+    ```python manage.py migrate```
 and then finally
 ```python manage.py runserver```
