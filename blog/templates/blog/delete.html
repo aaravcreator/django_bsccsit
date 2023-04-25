@@ -1,0 +1,9 @@
+Do you want to delete <strong>{{person.name}}</strong>
+
+<form action="" method="post">
+    {% csrf_token %}
+
+    {{form}}
+
+    <button type="submit">Yes</button>
+</form>

@@ -1,0 +1,17 @@
+{{single}}
+
+<body>
+    
+
+<div style="margin-left:20px">
+
+    {% for item in blogs %}
+    <p>{{item.name}}</p> <span><a href="{% url 'blog:edit_view' item.id %}">Edit</a> </span> |<span><a href="{% url 'blog:delete_view' item.id %}">Delete</a> </span>  
+    <p>{{item.address}}</p>
+    <hr>
+
+    {% endfor %}
+
+
+</div>
+</body>

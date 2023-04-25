@@ -1,0 +1,9 @@
+Person Edit <strong>{{person.name}}</strong>
+
+<form action="" method="post">
+    {% csrf_token %}
+
+    {{form}}
+
+    <button type="submit">Edit</button>
+</form>

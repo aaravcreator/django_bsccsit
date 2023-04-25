@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 
 from django.shortcuts import HttpResponse,render
 
@@ -51,9 +51,9 @@ def index_render(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("",index_render,name="index"),
+    path("",index,name="index"),
     path("myname/<str:name>/",myname_view,name="myname_view"),
     path("mul/<int:num1>/<int:num2>/",multiply_view,name="multiply_view"),
-    path("form/",form_view,name="form_view")
-
+    path("form/",form_view,name="form_view"),
+    path("blog/",include('blog.urls'))
 ]
