@@ -33,4 +33,5 @@ OR
 ``` pip install django-crispy-forms ```
 
 and then finally
+```python manage.py migrate```
 ```python manage.py runserver```
