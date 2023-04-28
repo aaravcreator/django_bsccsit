@@ -68,7 +68,6 @@ urlpatterns = [
 
     path("login/",loginPage,name="login"),
 
-
     path("create/",create_event,name="create_event"),
 
 
